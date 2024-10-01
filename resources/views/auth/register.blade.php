@@ -1,13 +1,18 @@
 <x-guest-layout>
     <x-authentication-card>
         <x-slot name="logo">
-            <x-authentication-card-logo />
+        {{-- <x-authentication-card-logo /> --}}
         </x-slot>
 
         <x-validation-errors class="mb-4" />
 
         <form method="POST" action="{{ route('register') }}">
             @csrf
+
+            <div class="flex flex-col items-center mb-4"> <!-- Centering the heading and paragraph -->
+            <h1 class="text-2xl font-bold mb-2 text-center">Expense Tracker System</h1> <!-- Bold heading -->
+            <p class="text-sm text-gray-600 text-center">Create Your Account</p> <!-- Centered paragraph -->
+            </div>
 
             <div>
                 <x-label for="name" value="{{ __('Name') }}" />
@@ -46,14 +51,14 @@
                 </div>
             @endif
 
-            <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                    {{ __('Already registered?') }}
-                </a>
-
-                <x-button class="ms-4">
+            <div class="flex flex-col items-center mt-4">
+                <x-button class="w-32 py-2 text-sm">
                     {{ __('Register') }}
                 </x-button>
+
+                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mt-4" href="{{ route('login') }}">
+                    {{ __('Already registered?') }}
+                </a>
             </div>
         </form>
     </x-authentication-card>

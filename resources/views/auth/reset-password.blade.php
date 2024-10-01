@@ -1,7 +1,7 @@
 <x-guest-layout>
     <x-authentication-card>
         <x-slot name="logo">
-            <x-authentication-card-logo />
+        {{-- <x-authentication-card-logo /> --}}
         </x-slot>
 
         <x-validation-errors class="mb-4" />
@@ -10,6 +10,11 @@
             @csrf
 
             <input type="hidden" name="token" value="{{ $request->route('token') }}">
+
+            <!-- Centered Heading -->
+            <div class="flex flex-col items-center mb-4">
+                <h1 class="text-2xl font-bold mb-2 text-center">Expense Tracker System</h1> <!-- Bold heading -->
+            </div>
 
             <div class="block">
                 <x-label for="email" value="{{ __('Email') }}" />
@@ -34,3 +39,4 @@
         </form>
     </x-authentication-card>
 </x-guest-layout>
+
